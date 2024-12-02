@@ -1,0 +1,124 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #5e2a84;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Modifié pour garder l'espace pour le titre */
+    align-items: center;
+    height: 100vh;
+}
+
+header {
+    margin-top: 20px; /* Espacement entre le haut de la page et le titre */
+}
+
+h1 {
+    font-size: 3em;
+    font-style: italic;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.container {
+    margin-top: 40px; /* Espace après le titre */
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%; /* Remplir l'espace disponible */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+label {
+    font-size: 1.2em;
+    display: block;
+    margin-top: 20px;
+}
+
+input, select {
+    width: 80%;  /* Limite la largeur des champs pour les rendre plus agréables */
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    font-size: 1em;
+    background-color: #fff;
+    color: #333;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.result {
+    background-color: #3b1c58;
+    color: #fff;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #3b1c58;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.faq h2 {
+    font-style: italic;
+    color: #FFD700;
+}
+
+.faq {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+#contact-button {
+    background-color: #ff4500;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+#contact-button:hover {
+    background-color: #e63946;
+}
+
+#contact-bubble {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #3b1c58;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.2em;
+}

